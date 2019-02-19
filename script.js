@@ -537,6 +537,10 @@
     "function" == typeof define && define.amd ? define(["jquery"], a) : a("undefined" != typeof jQuery ? jQuery : window.Zepto)
 }
 
+//alert(a);
+//window.console.log(a);
+
+
 (function(a) {
     "use strict";
 
@@ -1006,14 +1010,15 @@ $(document).ready(function(){
 
         return false;
     });
-/*
-* beforeSubmit: function(){document.getElementById('sub_button').style.display="none";document.getElementById('sub_preloader').style.display="block";},
-* */
+
+ //beforeSubmit: function(){document.getElementById('sub_button').style.display="none";document.getElementById('sub_preloader').style.display="block";},
+
     $('.unif-form').ajaxForm({
         dataType: 'json',
 	beforeSubmit: function(){
 
 var Mass_tagname = document.getElementsByTagName("*");
+//alert(Mass_tagname);
 for (var Mass_count = 0; Mass_count < Mass_tagname.length; Mass_count++) 
 {
 	if(Mass_tagname[Mass_count].getAttribute('id') == "sub_preloader") 
@@ -1035,6 +1040,8 @@ for (var Mass_count = 0; Mass_count < Mass_tagname.length; Mass_count++)
             var jqForm = $('#' + responseText.FORM_ID);
 
 
+            window.console.log(responseText);
+           //alert(responseText.text());
 			//alert(jqForm.html);
 			//alert($form.html);
 			//alert(xhr.val);
@@ -1051,6 +1058,7 @@ for (var Mass_count = 0; Mass_count < Mass_tagname.length; Mass_count++)
 
             if (responseText.TYPE == 'ERRORS')
             {
+                window.console.log(responseText);
 
 //alert("SOME ERRORS");
 
@@ -1106,26 +1114,26 @@ for (var Mass_count = 0; Mass_count < Mass_tagname.length; Mass_count++)
                 // success message show
                 jqForm.find('.success').fadeIn(250);
 
-var Mass_tagname = document.getElementsByTagName("*");
-for (var Mass_count = 0; Mass_count < Mass_tagname.length; Mass_count++) 
-{
-	if(Mass_tagname[Mass_count].getAttribute('id') == "sub_preloader") 
-	{
-		Mass_tagname[Mass_count].style.display="none";
-	}
+                var Mass_tagname = document.getElementsByTagName("*");
+                for (var Mass_count = 0; Mass_count < Mass_tagname.length; Mass_count++) 
+                {
+                	if(Mass_tagname[Mass_count].getAttribute('id') == "sub_preloader") 
+                	{
+                		Mass_tagname[Mass_count].style.display="none";
+                	}
 
-	if(Mass_tagname[Mass_count].getAttribute('id') == "sub_button") 
-	{
-		Mass_tagname[Mass_count].style.display="block";
-	}
+                	if(Mass_tagname[Mass_count].getAttribute('id') == "sub_button") 
+                	{
+                		Mass_tagname[Mass_count].style.display="block";
+                	}
 
-	if(Mass_tagname[Mass_count].getAttribute('id') == "for_hiding") 
-	{
-		Mass_tagname[Mass_count].style.display="none";
-	}
+                	if(Mass_tagname[Mass_count].getAttribute('id') == "for_hiding") 
+                	{
+                		Mass_tagname[Mass_count].style.display="none";
+                	}
 
 
-}
+                }
 
 		//document.getElementById('sub_preloader').style.display="none";
 		//document.getElementById('sub_button').style.display="block";
