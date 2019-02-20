@@ -63,22 +63,23 @@ $NUMBER=0
 
 foreach($arResult['ITEMS'] as $k=>$arItem)
 {
-            print_r("$k " .$arItem);
-            echo nl2br("\r\n");
-}
+	//print_r("$k " .$arItem);
+	//echo nl2br("\r\n");
 
+	$arItem_ID = $arItem['ID'];
 
+/*
 echo	"	<script type='text/javascript'>
 
 
-var userName = '<?php echo $arResult;?>';
+var userName = '<?php echo $arItem_ID;?>';
 
 alert(userName);
 //document.write('Значение PHP-переменной: ' + userName);
 //alert('alert from component_epilog.php' + userName);
 			</script>";
 
-
+*/
 
 //print_r("arItem['ID']_is : " . $arItem["ID"]);
 //echo nl2br("\r\n");
@@ -88,10 +89,11 @@ alert(userName);
 echo	'	<script type="text/javascript">
 			alert("SECOND IncludeComponent(nsandrey) from component_epilog.php");
 			</script>';
-
+*/
 
 $APPLICATION->IncludeComponent("nsandrey:mailform", "REQUEST_FORM", array(
-	"FORM_ID" => "REQUEST",
+	//"FORM_ID" => "REQUEST",
+	"FORM_ID" => "REQUEST".$arItem_ID,
 	"EMAIL_TO" => "shop@craftmann.ru",
 	"EVENT_ID" => "REQUEST",
 	"JQUERY" => "N",
@@ -156,6 +158,6 @@ $APPLICATION->IncludeComponent("nsandrey:mailform", "REQUEST_FORM", array(
 	),
 	false
 );
-*/
+}
 ?>
 </div>
